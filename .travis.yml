@@ -1,0 +1,40 @@
+language: node_js
+node_js:
+  - 6
+  - 8
+  - node
+
+matrix:
+  allow_failures:
+  - node_js:
+    - 6
+    - node
+before_install:
+  - cd lambda
+
+script:
+  - npm test
+
+jobs:
+  include:
+    - stage: deploy
+      if: branch = master
+      node_js: 8
+      before_install:
+        - (cd lambda && npm install)
+        - mkdir -p lambda/dist
+      script:
+        - make compile
+        - make dependencies
+      deploy:
+        provider: lambda
+        function_name: My-MP-Skill
+        region: eu-west-1
+        role: arn:aws:iam::665717792942:role/service-role/lambda_basic_execution
+        runtime: nodejs8.10
+        handler_name: handler
+        environment_variables:
+          - NODE_ENV=production
+        publish: true
+        timeout: 60
+        zip: lambda/dist
