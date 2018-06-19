@@ -8,3 +8,7 @@ dependencies:
 	rm -r ./lambda/node_modules
 	(cd lambda && npm install --only=production)
 	cp -r ./lambda/node_modules ./lambda/dist/
+
+update-skill:
+	ask deploy --target skill -p matt
+	ask deploy --target model -p matt

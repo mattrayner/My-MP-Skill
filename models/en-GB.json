@@ -1,0 +1,32 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my m. p.",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "FindMyMPIntent",
+          "samples": [
+            "for their party",
+            "for their name",
+            "for their constituency",
+            "which constituency they represent",
+            "which party they support",
+            "who they are"
+          ]
+        }
+      ]
+    }
+  }
+}

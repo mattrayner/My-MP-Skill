@@ -1,0 +1,41 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-GB": {
+          "summary": "Find out who your MP is.",
+          "examplePhrases": [
+            "Open My MP.",
+            "Ask My MP who they are.",
+            "Ask My MP what party they supports."
+          ],
+          "keywords": [],
+          "name": "My MP",
+          "description": "Find out who your MP is, their political party, and your constituency."
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Have an address in the UK :-)",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": [
+        "GB"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/dist"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
