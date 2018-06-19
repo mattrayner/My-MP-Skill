@@ -5,10 +5,16 @@ compile:
 	./lambda/node_modules/typescript/bin/tsc -p ./lambda/
 
 dependencies:
-	rm -r ./lambda/node_modules
-	(cd lambda && npm install --only=production)
-	cp -r ./lambda/node_modules ./lambda/dist/
+	cp ./lambda/package.json ./lambda/dist/
+	(cd lambda/dist && npm install --only=production)
+	rm ./lambda/dist/package*.json
 
 update-skill:
 	ask deploy --target skill -p matt
 	ask deploy --target model -p matt
+
+deploy-skill: compile dependencies
+	ask deploy -p matt
+
+simulate:
+	ask simulate -l en-GB -p matt -t "Alexa, ask My M. P. who they are"

@@ -28,7 +28,8 @@
             }
           }
         }
-      }
+      },
+      "in_skill_products": []
     }
   }
 }
