@@ -1,3 +1,7 @@
+.DS_Store
+/**/.DS_Store
 .idea/
 lambda/dist
 lambda/node_modules
+lambda/src/**/*.js
+lambda/test/**/*.js

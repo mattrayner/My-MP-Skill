@@ -4,7 +4,7 @@
   "description": "An example alexa project",
   "main": "src/index.ts",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha -r ts-node/register test/**/*.spec.ts"
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --require ts-node/register test/**/*.spec.ts"
   },
   "author": "Matt Rayner <m@rayner.io>",
   "license": "MIT",
