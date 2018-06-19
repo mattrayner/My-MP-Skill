@@ -5,13 +5,15 @@
         "en-GB": {
           "summary": "Find out who your MP is.",
           "examplePhrases": [
-            "Open My MP.",
-            "Ask My MP who they are.",
-            "Ask My MP what party they supports."
+            "Alexa, open My MP.",
+            "Alexa, ask My MP who they are.",
+            "Alexa, ask My MP which party they support."
           ],
           "keywords": [],
           "name": "My MP",
-          "description": "Find out who your MP is, their political party, and your constituency."
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/c3d6/3c69b3d9bf2c414880854bab856cc596/APP_ICON?versionId=k1dsjOsiotmUIwh36PzPpi8ev1rLxydH&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1529518843&Signature=dvrXH1RZyuLcQAyTw6tB75NStik%3D",
+          "description": "Find out who your MP is, their political party, and your constituency.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/dfae/438a9e17915c43e2a81bd2be2d734e47/APP_ICON_LARGE?versionId=UlMCOL9srSHBtyYReZN.AEss7Laq4TjL&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1529518843&Signature=tqNIR14Ovs4l6z%2B73xTDrD0r%2FYs%3D"
         }
       },
       "isAvailableWorldwide": false,
@@ -30,8 +32,18 @@
       }
     },
     "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::devices:all:address:full:read"
+      }
+    ],
     "privacyAndCompliance": {
       "allowsPurchases": false,
+      "locales": {
+        "en-GB": {
+          "privacyPolicyUrl": "https://www.parliament.uk/site-information/data-protection/data-protection-and-privacy-policy/"
+        }
+      },
       "isExportCompliant": true,
       "containsAds": false,
       "isChildDirected": false,
