@@ -24,22 +24,50 @@ describe('MyMP : FindMyMPIntent', () => {
 
   context('with permission', () => {
     context('Amazon address API error', () => {
-      beforeEach(() => {
-        nock('https://api.amazonalexa.com/v1/devices/string-identifying-the-device/settings/address/countryAndPostalCode')
-          .get('').reply(403, '');
+      context('403', () => {
+        beforeEach(() => {
+          nock('https://api.amazonalexa.com/v1/devices/string-identifying-the-device/settings/address/countryAndPostalCode')
+            .get('').reply(403, '');
 
-        return new Promise((resolve, reject) => {
-          skill(with_permission_request, null, (error, responseEnvelope) => {
-            skill_response = responseEnvelope;
-            resolve();
+          return new Promise((resolve, reject) => {
+            skill(with_permission_request, null, (error, responseEnvelope) => {
+              skill_response = responseEnvelope;
+              resolve();
+            });
           });
+        });
+
+        it('tells the user there has been an error', () => {
+          let outputSpeech = <ui.SsmlOutputSpeech>skill_response.response.outputSpeech;
+
+          expect(outputSpeech.ssml).to.eq('<speak>There was a problem getting your postcode from Amazon. Please try again later.</speak>');
         });
       });
 
-      it('tells the user there has been an error', () => {
-        let outputSpeech = <ui.SsmlOutputSpeech>skill_response.response.outputSpeech;
+      context('Other request error', () => {
+        let skill_error = null;
 
-        expect(outputSpeech.ssml).to.eq('<speak>There was a problem getting your postcode from Amazon. Please try again later.</speak>');
+        beforeEach(() => {
+          nock('https://api.amazonalexa.com/v1/devices/string-identifying-the-device/settings/address/countryAndPostalCode')
+            .get('').replyWithError('something awful happened');
+
+          return new Promise((resolve, reject) => {
+            skill(with_permission_request, null, (error, responseEnvelope) => {
+              skill_error = error;
+              skill_response = responseEnvelope;
+              resolve();
+            });
+          });
+        });
+
+        afterEach(() => {
+          skill_error = null;
+        });
+
+        it('throws an error', () => {
+          expect(skill_error.message).to.eq('Call to service failed: something awful happened');
+          expect(skill_response).to.be.undefined;
+        });
       });
     });
 

@@ -1,3 +1,5 @@
+'use strict';
+
 import * as Winston from 'winston'
 
 let level: string = 'debug';

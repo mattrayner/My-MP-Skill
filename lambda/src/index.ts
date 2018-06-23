@@ -9,6 +9,7 @@ import { LaunchRequestHandler } from './handlers/launch_request';
 import { HelpIntentHandler } from './handlers/help_intent';
 import { CloseSkillHander } from './handlers/close_skill';
 import { FindMyMPIntentHandler } from './handlers/find_my_mp_intent';
+import { winston } from "./utils/winston";
 
 export async function handler(event: RequestEnvelope, context: any, callback: any): Promise<ResponseEnvelope> {
   const factory = SkillBuilders
@@ -27,7 +28,7 @@ export async function handler(event: RequestEnvelope, context: any, callback: an
 
     return callback(null, responseEnvelope);
   } catch (error) {
-    console.log(error);
+    winston.info(error);
 
     return callback(error);
   }
