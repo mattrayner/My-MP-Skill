@@ -9,7 +9,8 @@
   "author": "Matt Rayner <m@rayner.io>",
   "license": "MIT",
   "dependencies": {
-    "ask-sdk": "^2.0.6"
+    "ask-sdk": "^2.0.6",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",

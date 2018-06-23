@@ -8,6 +8,7 @@ import { RequestEnvelope, ResponseEnvelope } from 'ask-sdk-model';
 import { LaunchRequestHandler } from './handlers/launch_request';
 import { HelpIntentHandler } from './handlers/help_intent';
 import { CloseSkillHander } from './handlers/close_skill';
+import { FindMyMPIntentHandler } from './handlers/find_my_mp_intent';
 
 export async function handler(event: RequestEnvelope, context: any, callback: any): Promise<ResponseEnvelope> {
   const factory = SkillBuilders
@@ -15,6 +16,7 @@ export async function handler(event: RequestEnvelope, context: any, callback: an
     .addRequestHandlers(
       LaunchRequestHandler,
       HelpIntentHandler,
+      FindMyMPIntentHandler,
       CloseSkillHander
     );
 
